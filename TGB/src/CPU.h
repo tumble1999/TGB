@@ -2,13 +2,81 @@
 #define _CPU_H_
 
 #include <cstdint>
-#include "MemoryMap.h"
-#include "Structs.h"
-#include "Enums.h"
+#include "AddressBus.h"
+
+
+enum class Flag : unsigned int {
+	FLAG_C = 4u,	//Carry (cy)[NC] 
+	FLAG_H,//HAlf Carry (h) (BCD)
+	FLAG_N,	//Subtract (n) (BCD)
+	FLAG_Z		//Zero (zf) [NZ]
+};
+
+
+struct Instruction
+{
+	const char* opcode = "NOP";
+	const char* operands[2]{};
+	int paramCount = 0;
+	char flags[4]{ -1 };
+	void (CPU::* execute)(void) = nullptr;
+
+	void call(CPU* gb) {
+		(gb->*execute)();
+	}
+};
+
+
+
+struct Registers {
+	struct {
+		union {
+			struct {
+				uint8_t f;
+				uint8_t a;
+			};
+			uint16_t af;
+		};
+	};
+
+	struct {
+		union {
+			struct {
+				uint8_t c;
+				uint8_t b;
+			};
+			uint16_t bc;
+		};
+	};
+
+	struct {
+		union {
+			struct {
+				uint8_t e;
+				uint8_t d;
+			};
+			uint16_t de;
+		};
+	};
+
+	struct {
+		union {
+			struct {
+				uint8_t l;
+				uint8_t h;
+			};
+			uint16_t hl;
+		};
+	};
+
+	GBuint16 sp = 0xFFFE;
+	GBuint16 pc = 0;
+};
+
 
 class CPU {
 private:
-	MemoryMap* memory;
+	AddressBus* memory;
 	Registers reg{};
 	/*
 	Flags

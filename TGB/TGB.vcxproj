@@ -145,16 +145,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\CPU.cpp" />
-    <ClCompile Include="src\MemoryMap.cpp" />
+    <ClCompile Include="src\AddressBus.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Platform.cpp" />
+    <ClCompile Include="src\PPU.cpp" />
     <ClCompile Include="src\ROM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CPU.h" />
-    <ClInclude Include="src\Enums.h" />
-    <ClInclude Include="src\MemoryMap.h" />
-    <ClInclude Include="src\Structs.h" />
+    <ClInclude Include="src\AddressBus.h" />
+    <ClInclude Include="src\PPU.h" />
+    <ClInclude Include="src\GBuint16.h" />
     <ClInclude Include="src\Platform.h" />
     <ClInclude Include="src\ROM.h" />
   </ItemGroup>

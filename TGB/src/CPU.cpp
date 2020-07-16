@@ -5,7 +5,7 @@
 
 
 CPU::CPU()
-	:memory(new MemoryMap(this))
+	:memory(new AddressBus(this))
 {
 }
 
@@ -20,7 +20,7 @@ void CPU::update() {
 	uint8_t/char 1
 	uint16_t/short 2
 	*/
-	printf("$%X: ", reg.pc);
+	printf("$%X: ",reg.pc);
 	uint8_t opcode = (*memory)[reg.pc++];
 	Instruction instruction = instructions[opcode];
 	if (instruction.opcode == Instruction().opcode) {

@@ -1,14 +1,14 @@
-#ifndef _MEMORY_H_
-#define _MEMORY_H_
+#ifndef ADDRESSBUS_H_
+#define _ADDRESSBUS_H_
 #include <cstdint>
 
-#include "Structs.h"
 #include "ROM.h"
+#include "GBuint16.h"
 
-class CPU;
 
-class MemoryMap {
+static class AddressBus {
 private:
+
 	/*
 	Memory Map:
 	0x0000-0x3FFF	16KB ROM bank 00
@@ -29,9 +29,9 @@ private:
 	*/
 
 	bool booting;
-	CPU* cpu;
-	ROM bios{};
-	ROM rom{};
+	class CPU* cpu;
+	ROM* bios;
+	ROM* rom;
 
 	uint8_t videoRam[0x2000];
 	uint8_t* saveData[0x2000];
@@ -45,11 +45,7 @@ private:
 	const uint8_t invalidData = UINT8_MAX;
 	
 public:
-	MemoryMap(CPU* cpu);
-	~MemoryMap();
-
-	uint8_t& operator[](GBuint16 i);
 
 };
 
-#endif // !_MEMORY_H_
+#endif // !_ADDRESS_H_

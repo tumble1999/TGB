@@ -21,24 +21,21 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MemoryMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ROM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\AddressBus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PPU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CPU.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Enums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MemoryMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform.h">
@@ -47,7 +44,13 @@
     <ClInclude Include="src\ROM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Structs.h">
+    <ClInclude Include="src\AddressBus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PPU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GBuint16.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
